@@ -1,7 +1,12 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
 const double PI = 3.1416;
 const int LIGHT_SPEED = 299792458;
+typedef std::vector<std::pair<std::string, int>> pairlist_t;
+typedef std::string text_t;
+
 namespace first
 {
     int x = 1;
@@ -50,10 +55,60 @@ void Namespaces()
     //using namespace second;
     using std::cout;
     int x = 123;
+    text_t full_name = "Erick L. Garcia I.";
 
     cout<<"Local x variable -> "<<x<<std::endl;
     cout<<"X variable namespace 1st -> "<<first::x<<std::endl;
     cout<<"X variable namespace 2nd -> "<<second::x<<std::endl;
+    cout<<"Full name is "<<full_name<<std::endl;
+}
+
+void ArithmeticOperators()
+{
+    int students = 20;
+    students += students;
+    using std::cout;
+
+    students--;
+    cout<<"N° students: "<<students<<std::endl;
+    students++;
+    cout<<"N° students: "<<students<<std::endl;
+    int module_value = students % 7;
+    cout<<"Module value: "<<module_value<<std::endl;
+}
+
+void TypeConversion()
+{
+    using std::cout;
+    double x = (int)3.14; //Explicit conversion
+    int y = 3.14; //Implicit conversion
+    int correct = 8;
+    int total = 10;
+    double score = (correct/(double)total)*100;
+
+    cout<<score<<"%";
+}
+
+void UserInput()
+{
+    using std::cout;
+    using std::cin;
+    using std::endl;
+    
+    std::string name = "";
+    int age = 0;
+
+    cout<<"What's your name? ";
+    cin>>name;
+    cout<<"Hello "<<name<<endl<<endl;
+
+    cout<<"What's your full name? ";
+    std::getline(std::cin>>std::ws, name);
+    cout<<"Hello "<<name<<endl<<endl;
+
+    cout<<"What's your age? ";
+    cin>>age;
+    cout<<"You are "<<age<<" years old"<<endl;
 }
 
 
@@ -62,6 +117,10 @@ int main()
     //Greeting();
     //Variables();
     //Namespaces();
+    //ArithmeticOperators();
+    //TypeConversion();
+    UserInput();
+
     return 0;
 }
 
