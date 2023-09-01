@@ -309,6 +309,109 @@ void TemperatureConverter()
     }
 }
 
+void StringMethods()
+{
+    std::string name;
+
+    cout<<"Enter name: ";
+    std::getline(std::cin, name);
+
+    if (name.empty())
+    {
+        cout<<"Empty value not allowed.";
+    }
+    else if (name.length() > 12)
+    {
+        cout<<"Name can not be over 12 characters.";
+    }
+    else
+    {
+        name = name.insert(0, "Mr. ");
+        name = name.append(", welcome...");
+        cout<<name<<std::endl;
+        cout<<name.at(0)<<std::endl;
+        cout<<name.find('.')<<std::endl;
+    }
+}
+
+void WhileLoop()
+{
+    std::string name;
+
+    while (name.empty())
+    {
+        cout<<"Enter name: ";
+        std::getline(cin, name);
+    }
+
+    cout<<"Hello "<<name;
+}
+
+void DoWhileLoop()
+{
+    int number;
+
+    do
+    {
+        cout<<"Enter number: ";
+        cin>>number;
+
+        if (number < 0)
+        {
+            cout<<"Number must be higher than 0..."<<std::endl;
+        }
+    } while (number < 0);
+    
+    cout<<"Number -> "<<number;
+}
+
+void ForLoops()
+{
+    int number;
+    cout<<"Enter final number: ";
+    cin>>number;
+
+    for (int i=1; i<=number; i++)
+    {
+        if (i != 13)
+        {
+            cout<<i<<std::endl;
+        }
+        else
+        {
+            cout<<"Skip bad luck number..."<<std::endl;
+            continue;
+        }
+
+        if (i % 17 == 0)
+        {
+            cout<<"Number % 17 = 0"<<std::endl;
+            break;
+        }
+    }
+
+    cout<<"End of the function.";
+}
+
+void NestedLoops()
+{
+    int rows, columns;
+    cout<<"Emter # rows: ";
+    cin>>rows;
+    cout<<"Enter columns: ";
+    cin>>columns;
+
+    for (int i=0; i<rows; i++)
+    {
+        for (int j=0; j<columns; j++)
+        {
+            cout<<"@-@";
+        }
+
+        cout<<std::endl;
+    }
+}
+
 
 int main()
 {
@@ -327,7 +430,13 @@ int main()
     //CalculatorProgram();
     //TernaryOperator();
     //LogicalOperators();
-    TemperatureConverter();
+    //TemperatureConverter();
+
+    //StringMethods();
+    //WhileLoop();
+    //DoWhileLoop();
+    //ForLoops();
+    NestedLoops();
 
     return 0;
 }
