@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cmath>
+
+using std::cout;
+using std::cin;
 
 const double PI = 3.1416;
 const int LIGHT_SPEED = 299792458;
@@ -111,15 +115,219 @@ void UserInput()
     cout<<"You are "<<age<<" years old"<<endl;
 }
 
+void MathFunctions()
+{
+    using std::cout;   
+    using std::endl;
+    double x = 3;
+    double y = 4;
+    double max = std::max(x, y);
+    double min = std::min(x, y);
+    double abs_val = abs(-45);
+    double sqrt_val = sqrt(x);
+    double pow_val = pow(x, 2);
+    double ceil_val = ceil(x / 2);
+    double floor_val = floor(x / 2);
+
+    cout<<"Max -> "<<max<<endl;
+    cout<<"Min -> "<<min<<endl;
+    cout<<"x Power 2 ->"<<pow_val<<endl;
+    cout<<"Abs -> "<<abs_val<<endl;
+    cout<<"Sqrt -> "<<sqrt_val<<endl;
+    cout<<"Ceil and floor ->"<<ceil_val<<" , "<<floor_val<<endl;
+}
+
+void HypotenuseCalculator()
+{
+    //Pitagora formula
+    double side_A, side_B, side_C;
+
+    std::cout<<"Enter side A: ";
+    std::cin>>side_A;
+    std::cout<<"Enter side B: ";
+    std::cin>>side_B;
+
+    side_C = sqrt(pow(side_A, 2) + pow(side_B, 2));
+    std::cout<<"Side C values is: "<<side_C;
+}
+
+void IfStatement()
+{
+    using std::cout;
+    using std::cin;
+    int age;
+
+    cout<<"Enter age: ";
+    cin>>age;
+
+    if (age < 0)
+    {
+        cout<<"Sorry, wrong input...";
+    }
+    else if (age >= 100)
+    {
+        cout<<"Sorry, you are too old for this bar...";
+    }
+    else if (age < 18)
+    {
+        cout<<"Sorry, only older or equal to 18 allowed...";
+    }
+    else
+    {
+        cout<<"Welcome to Erick's bar!!!";
+    }
+}
+
+void SwitchStatement()
+{
+    using std::cout;
+    using std::cin;
+    int month;
+
+    cout<<"Enter month: ";
+    cin>>month;
+
+    switch (month)
+    {
+    case 1:
+        cout<<"It's January";
+        break;
+    case 2:
+        cout<<"It's February";
+        break;
+    case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+        cout<<"It's later than February";
+        break;
+    default:
+        cout<<"Unknown case";
+        break;
+    }
+}
+
+void CalculatorProgram()
+{
+    double value_1, value_2, result;
+    bool validator = true;
+    char op;
+
+    cout<<"Enter # 1: ";
+    cin>>value_1;
+    cout<<"Enter # 2: ";
+    cin>>value_2;
+    cout<<"Enter operation (+ - * /): ";
+    cin>>op;
+
+    switch (op)
+    {
+    case '+':
+        result = value_1 + value_2;
+        break;
+    case '-':
+        result = value_1 - value_2;
+        break;
+    case '*':
+        result = value_1 * value_2;
+        break;
+    case '/':
+        result = value_1 / value_2;
+        break;
+    default:
+        validator = false;
+        break;
+    }
+
+    if (validator == true)
+    {
+        cout<<"Result is "<<result;
+    }
+    else
+    {
+        cout<<"Not a valid operator.";
+    }
+}
+
+void TernaryOperator()
+{
+    int grade = 0;
+    //grater than 11 -> pass, else -> fail
+    cout<<"Enter grade: ";
+    cin>>grade;
+
+    grade >= 11 ? cout<<"You passed, congrats!!!" : cout<<"You failed...";
+}
+
+void LogicalOperators()
+{
+    int temp = 0;
+    cout<<"Enter temperature:";
+    cin>>temp;
+
+    if (temp < -10)
+    {
+        cout<<"It's really cold, be careful";
+    }
+    else if(temp >= -10 && temp < 10)
+    {
+        cout<<"It's cold, get a sweater.";
+    }
+    else if(temp >= 10 && temp < 20)
+    {
+        cout<<"It's ok outside";
+    }
+    else
+    {
+        cout<<"It's warm outside";
+    }
+}
+
+void TemperatureConverter()
+{
+    double temp;
+    char unit;
+
+    cout<<"Enter temperature: ";
+    cin>>temp;
+    cout<<"Select unit: "<<std::endl;
+    cout<<"(1) Fahrenheit to Celcius"<<std::endl;
+    cout<<"(2) Celcius to Fahrenheit"<<std::endl;
+    cout<<"Enter selection: ";
+    cin>>unit;
+
+    if (unit == '1')
+    {
+        temp = (temp -32) * 0.55;
+        cout<<"Result -> "<<temp;
+    }
+    else if(unit == '2')
+    {
+        temp = (temp / 0.55) + 32;
+        cout<<"Result -> "<<temp;
+    }
+    else
+    {
+        cout<<"Invalid selection.";
+    }
+}
+
 
 int main()
 {
     //Greeting();
     //Variables();
     //Namespaces();
+
     //ArithmeticOperators();
     //TypeConversion();
-    UserInput();
+    //UserInput();
+    //MathFunctions();
+    //HypotenuseCalculator();
+
+    //IfStatement();
+    //SwitchStatement();
+    //CalculatorProgram();
+    //TernaryOperator();
+    //LogicalOperators();
+    TemperatureConverter();
 
     return 0;
 }
