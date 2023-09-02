@@ -11,6 +11,12 @@ const int LIGHT_SPEED = 299792458;
 typedef std::vector<std::pair<std::string, int>> pairlist_t;
 typedef std::string text_t;
 
+void HappyBirthDay(std::string name);
+double SquareFigure(double length);
+void BakePizza();
+void BakePizza(std::string tapping1);
+void BakePizza(std::string tapping1, std::string tapping2);
+
 namespace first
 {
     int x = 1;
@@ -412,6 +418,81 @@ void NestedLoops()
     }
 }
 
+void RandomNumberGenerator()
+{
+    srand(time(NULL));
+    int num1 = rand() % 6 + 1;
+    int num2 = rand() % 6 + 1;
+    int num3 = rand() % 6 + 1;
+
+    cout<<"Number 1: "<<num1<<std::endl;
+    cout<<"Number 2: "<<num2<<std::endl;
+    cout<<"Number 3: "<<num3<<std::endl;
+}
+
+void RandomEventGenerator()
+{
+    srand(time(0));
+    int number = rand() % 5 + 1;
+
+    switch (number)
+    {
+    case 1:
+        cout<<"You win a cup of coffee.";
+        break;
+    case 2:
+        cout<<"You win a pair of socks.";
+        break;
+    case 3:
+        cout<<"You win a Zenit t-shirt.";
+        break;
+    case 4:
+        cout<<"You win a pair of running shoes.";
+        break;
+    case 5:
+        cout<<"You win a smartphone.";
+        break;
+    
+    default:
+        break;
+    }
+}
+
+void NumberGuessingGame()
+{
+    int number;
+    int guess;
+    int tries;
+
+    srand(time(NULL));
+    number = rand() % 100 + 1;
+
+    cout<<"----------------------------NUMBER GUESSING GAME ----------------------------";
+
+    do
+    {
+        cout<<"Guess the correct number: ";
+        cin>>guess;
+        tries++;
+
+        if (guess > number)
+        {
+            cout<<"Too high..."<<std::endl;
+        }
+        else if (guess < number)
+        {
+            cout<<"Too low..."<<std::endl;
+        }
+        else
+        {
+            cout<<"CORRECT: you found the right number...!!!"<<std::endl;
+            cout<<"You tried "<<tries<<" tiems";
+        }
+    } while (guess != number);
+    
+}
+
+
 
 int main()
 {
@@ -436,8 +517,45 @@ int main()
     //WhileLoop();
     //DoWhileLoop();
     //ForLoops();
-    NestedLoops();
+    //NestedLoops();
+
+    //RandomNumberGenerator();
+    //RandomEventGenerator();
+    //NumberGuessingGame();
+    //HappyBirthday("Erick");
+    //cout<<"Area: "<<SquareFigure(5.0)<<" cm2";
+    //BakePizza();
+    //BakePizza("pepperoni");
+    //BakePizza("pepperoni", "cheese");
 
     return 0;
 }
 
+
+void HappyBirthday(std::string name)
+{
+    cout<<"Happy birthday to you!"<<std::endl;
+    cout<<"Happy birthday to you!"<<std::endl;
+    cout<<"Happy birthday dear "<<name<<"!"<<std::endl;
+}
+
+double SquareFigure(double length)
+{
+    double result = length * length;
+    return result;
+}
+
+void BakePizza()
+{
+    cout<<"Here's your pizza, enjoy it!!!"<<std::endl;
+}
+
+void BakePizza(std::string tapping1)
+{
+    cout<<"Here's your "<<tapping1<<" pizza, enjoy it!!!"<<std::endl;
+}
+
+void BakePizza(std::string tapping1, std::string tapping2)
+{
+    cout<<"Here's your "<<tapping1<<" and "<<tapping2<<" pizza, enjoy it!!!"<<std::endl;
+}
