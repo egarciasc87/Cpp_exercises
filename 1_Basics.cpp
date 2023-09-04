@@ -11,6 +11,12 @@ const int LIGHT_SPEED = 299792458;
 typedef std::vector<std::pair<std::string, int>> pairlist_t;
 typedef std::string text_t;
 
+void HappyBirthDay(std::string name);
+double SquareFigure(double length);
+void BakePizza();
+void BakePizza(std::string tapping1);
+void BakePizza(std::string tapping1, std::string tapping2);
+
 namespace first
 {
     int x = 1;
@@ -412,9 +418,238 @@ void NestedLoops()
     }
 }
 
+void RandomNumberGenerator()
+{
+    srand(time(NULL));
+    int num1 = rand() % 6 + 1;
+    int num2 = rand() % 6 + 1;
+    int num3 = rand() % 6 + 1;
+
+    cout<<"Number 1: "<<num1<<std::endl;
+    cout<<"Number 2: "<<num2<<std::endl;
+    cout<<"Number 3: "<<num3<<std::endl;
+}
+
+void RandomEventGenerator()
+{
+    srand(time(0));
+    int number = rand() % 5 + 1;
+
+    switch (number)
+    {
+    case 1:
+        cout<<"You win a cup of coffee.";
+        break;
+    case 2:
+        cout<<"You win a pair of socks.";
+        break;
+    case 3:
+        cout<<"You win a Zenit t-shirt.";
+        break;
+    case 4:
+        cout<<"You win a pair of running shoes.";
+        break;
+    case 5:
+        cout<<"You win a smartphone.";
+        break;
+    
+    default:
+        break;
+    }
+}
+
+void NumberGuessingGame()
+{
+    int number;
+    int guess;
+    int tries;
+
+    srand(time(NULL));
+    number = rand() % 100 + 1;
+
+    cout<<"----------------------------NUMBER GUESSING GAME ----------------------------";
+
+    do
+    {
+        cout<<"Guess the correct number: ";
+        cin>>guess;
+        tries++;
+
+        if (guess > number)
+        {
+            cout<<"Too high..."<<std::endl;
+        }
+        else if (guess < number)
+        {
+            cout<<"Too low..."<<std::endl;
+        }
+        else
+        {
+            cout<<"CORRECT: you found the right number...!!!"<<std::endl;
+            cout<<"You tried "<<tries<<" tiems";
+        }
+    } while (guess != number);
+    
+}
+
+void Arrays()
+{
+    std::string car[] = {"Corvette", "Mustang", "Camaro"};
+    std::string students[] = {"Erick", "Patrick", "Carlos", "Ivan", "Elena", "Claudia", "Fernando"};
+    std::string continents[] = {"America", "Europe", "Asia", "Africa", "Oceania"};
+    double price = 12.50;
+    char grade = 'A';
+
+    cout<<car[0]<<std::endl;
+    cout<<car[1]<<std::endl;
+    cout<<car[2]<<std::endl;
+    cout<<sizeof(car)<<" bytes"<<std::endl;
+    cout<<sizeof(price)<<" bytes"<<std::endl;
+    cout<<sizeof(grade)<<" bytes"<<std::endl;
+
+    cout<<"\nArray of cars: "<<std::endl;
+    for (int i=0; i<(sizeof(car)/sizeof(car[0])); i++)
+    {
+        cout<<car[i]<<std::endl;
+    }
+
+    cout<<"\nArray of students: "<<std::endl;
+    for (int i=0; i<sizeof(students)/sizeof(std::string); i++)
+    {
+        cout<<students[i]<<std::endl;
+    }
+    
+    cout<<"\nArray of continents: "<<std::endl;
+    for (std::string continent : continents)
+    {
+        cout<<continent<<std::endl;
+    }
+}
+
+void SumArray(double list[], int size)
+{
+    double total = 0;
+    double search;
+
+    for (int i=0; i<size; i++)
+    {
+        total += list[i];
+    }
+
+    cout<<"Sum: "<<total<<std::endl;
+    cout<<"Enter number to search: ";
+    cin>>search;
+
+    for (int i=0; i<size; i++)
+    {
+        if (list[i] == search)
+        {
+            cout<<"Number found at location "<<i<<".";
+            return;
+        }
+    }
+
+    cout<<"Number not found...!!!";
+}
+
+void BubbleSort(double array[], int size)
+{
+    double temp = 0;
+    int lastItem = size;
+    int index = 0;
+    int i=0;
+
+    while (i<=lastItem)
+    {
+        lastItem--;
+        index = i;
+        temp = array[i];
+
+        for (int j=1; j<=lastItem; j++)
+        {
+            if (index == j)
+            {
+                continue;
+            }
+
+            if (temp > array[j])
+            {
+                array[j-1] = array[j];
+                array[j] = temp;
+            }
+            else
+            {
+                temp = array[j];
+                index = j;
+            }
+        }
+    }
+
+
+    for (int k=0; k<size; k++)
+    {
+        cout<<array[k]<<", ";
+    }
+}
+
+void FillArray()
+{
+    std::string foods[5];
+    std::string temp;
+    int size = sizeof(foods)/sizeof(std::string);
+    
+    for (int i=0; i<size; i++)
+    {
+        cout<<"Enter item #"<<i+1<<" or 'q' to quit: ";
+        std::getline(cin, temp);
+
+        if (temp == "q")
+        {
+            break;
+        }       
+        else
+        {
+            foods[i] = temp;
+        } 
+    }
+
+    cout<<"Items added to the array:\n";
+    for (std::string food : foods)
+    {
+        if (food.empty() == false)
+        {
+            cout<<food<<"\n";
+        }
+    }
+}
+
+void MultiDimensionalArrays()
+{
+    std::string cars[4][3] = {{"Mustang", "Escape", "F-150"},
+                            {"Corvette", "Equinox", "Silverado"},
+                            {"Qashqai", "X-Trail", "Frontier"},
+                            {"Challenger", "Durango", "RAM 1500"}};
+    int rows = sizeof(cars)/sizeof(cars[0]);
+    int columns = sizeof(cars[0])/sizeof(std::string);
+
+    for (int i=0; i<rows; i++)
+    {
+        for (int j=0; j<columns; j++)
+        {
+            cout<<cars[i][j]<<" ";
+        }
+
+        cout<<"\n";
+    }
+}
+
 
 int main()
 {
+    /*
+    https://www.youtube.com/playlist?list=PLZPZq0r_RZOMHoXIcxze_lP97j2Ase2on
+    */
+
     //Greeting();
     //Variables();
     //Namespaces();
@@ -436,8 +671,53 @@ int main()
     //WhileLoop();
     //DoWhileLoop();
     //ForLoops();
-    NestedLoops();
+    //NestedLoops();
+
+    //RandomNumberGenerator();
+    //RandomEventGenerator();
+    //NumberGuessingGame();
+    //HappyBirthday("Erick");
+    //cout<<"Area: "<<SquareFigure(5.0)<<" cm2";
+    //BakePizza();
+    //BakePizza("pepperoni");
+    //BakePizza("pepperoni", "cheese");
+
+    //Arrays();
+    //double numArray[] = {4, 2, -2, 0, 11, 9, 7};
+    //int size = sizeof(numArray)/sizeof(double);
+    //SumArray(numArray, size);
+    //BubbleSort(numArray, size);
+    //FillArray();
+    MultiDimensionalArrays();
 
     return 0;
 }
 
+
+void HappyBirthday(std::string name)
+{
+    cout<<"Happy birthday to you!"<<std::endl;
+    cout<<"Happy birthday to you!"<<std::endl;
+    cout<<"Happy birthday dear "<<name<<"!"<<std::endl;
+}
+
+double SquareFigure(double length)
+{
+    double result = length * length;
+    return result;
+}
+
+void BakePizza()
+{
+    cout<<"Here's your pizza, enjoy it!!!"<<std::endl;
+}
+
+void BakePizza(std::string tapping1)
+{
+    cout<<"Here's your "<<tapping1<<" pizza, enjoy it!!!"<<std::endl;
+}
+
+void BakePizza(std::string tapping1, std::string tapping2)
+{
+    cout<<"Here's your "<<tapping1<<" and "<<tapping2<<" pizza, enjoy it!!!"<<std::endl;
+}
