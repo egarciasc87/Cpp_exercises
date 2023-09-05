@@ -707,7 +707,141 @@ void DynamicMemory()
     cout<<pGrades[i]<<" ";
     }
 
+    delete pNum;
     delete[] pGrades;
+}
+
+void WalkingIterative(int steps)
+{
+    for (int i=0; i<steps; i++)
+    {
+        cout<<"Iterative step #"<<i+1<<"\n";
+    }
+}
+
+void WalkingRecursive(int steps)
+{
+    if (steps > 0)
+    {
+        cout<<"Recursive step #"<<steps<<"\n";
+        WalkingRecursive(steps-1);
+    }
+}
+
+int FactorialIterative(int value)
+{
+    int factorial = value;
+
+    for (int i=value-1; i>0; i--)
+    {
+        factorial = factorial*i;
+    }
+
+    return factorial;
+}
+
+int FactorialRecursive(int value)
+{
+    int factorial = value;
+
+    if (value > 1)
+    {
+        factorial = factorial * FactorialRecursive(value - 1);
+    }
+
+    return factorial;
+}
+
+void MaxValue(int x, int y)
+{
+    int max = (x > y) ? x : y;
+    cout<<"Max int: "<<max<<"\n";
+}
+
+void MaxValue(double x, double y)
+{
+    double max = (x > y) ? x : y;
+    cout<<"Max double: "<<max<<"\n";
+}
+
+void MaxValue(char x, char y)
+{
+    char max = (x > y) ? x : y;
+    cout<<"Max char: "<<max<<"\n";
+}
+
+template <typename T>
+
+void MaxValueThing(T x, T y)
+{
+    T max = (x > y) ? x : y;
+    cout<<"Max item: "<<max<<"\n";
+}
+
+struct Student
+{
+    std::string name;
+    double gpa;
+    bool enrolled = true;
+};
+
+void FillStudent(Student &student)
+{
+    cout<<"addres of struct in FillStudent: "<<&student<<"\n";
+    cout<<"Enter name: ";
+    cin>>student.name;
+    cout<<"Enter GPA: ";
+    cin>>student.gpa;
+    cout<<"Is he enrolled? (1/0): ";
+    cin>>student.enrolled;
+
+    //return student;
+}
+
+void PrintStudent(Student student)
+{
+    //cout<<"\n";
+    //cout<<"***STUDENT***"<<"\n";
+    //cout<<"-------------"<<"\n";
+    cout<<"Name: "<<student.name<<"\n";
+    cout<<"GPA: "<<student.gpa<<"\n";
+    cout<<"Enrolled: "<<student.enrolled<<"\n";
+}
+
+enum Day {monday = 0, tuesday = 1, wednesday = 2, thursday = 3, 
+    friday = 4, saturday = 5, sunday = 6};
+
+void Enums()
+{
+    Day today = sunday;
+
+    switch (today)
+    {
+    case monday: 
+        cout<<"It's monday";
+        break;
+    case tuesday: 
+        cout<<"It's tuesday";
+        break;
+    case wednesday: 
+        cout<<"It's wednesday";
+        break;
+    case thursday: 
+        cout<<"It's thursday";
+        break;
+    case friday: 
+        cout<<"It's friday";
+        break;
+    case saturday: 
+        cout<<"It's saturday";
+        break;
+    case sunday: 
+        cout<<"It's sunday";
+        break;
+    
+    default:
+        break;
+    }
 }
 
 
@@ -768,7 +902,50 @@ int main()
     cout<<"Main function: "<<name;
     */
     //Pointers();
-    DynamicMemory();
+    //DynamicMemory();
+    /*
+    int steps;
+    cout<<"Enter number of steps: ";
+    cin>>steps;
+    WalkingIterative(steps);
+    WalkingRecursive(steps);
+    */
+    
+    //int value = 4;
+    //cout<<"Factorial iterativo: "<<FactorialIterative(value)<<"\n";
+    //cout<<"Factorial recursivo: "<<FactorialRecursive(value)<<"\n";
+
+    /*
+    MaxValue(1,5);
+    MaxValue(3.4, 3.45);
+    MaxValue('a', 't');
+    MaxValueThing(2,5);
+    */
+
+    /*
+    Student student;
+    cout<<"addres of struct in main: "<<&student<<"\n";
+    FillStudent(student);
+    PrintStudent(student);
+    */
+
+    /*
+    Student students[4];
+
+    for (int i=0; i<4; i++)
+    {
+        cout<<"\nStudent #"<<i+1<<"\n";
+        FillStudent(students[i]);
+    }
+
+    for (int i=0; i<4; i++)
+    {
+        cout<<"\nStudent #"<<i+1<<"\n";
+        PrintStudent(students[i]);
+    }
+    */
+
+    Enums();
 
     return 0;
 }
