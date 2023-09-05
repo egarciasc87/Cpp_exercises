@@ -6,6 +6,7 @@
 using std::cout;
 using std::cin;
 
+const std::string AUTHOR = "Erick Garcia";
 const double PI = 3.1416;
 const int LIGHT_SPEED = 299792458;
 typedef std::vector<std::pair<std::string, int>> pairlist_t;
@@ -643,6 +644,72 @@ void MultiDimensionalArrays()
     }
 }
 
+void MemoryAddress()
+{
+    std::string name = "Erick";
+    int age = 36;
+    bool student = false;
+
+    cout<<"Value: "<<name<<"\n";
+    cout<<"Memory address: "<<&name<<"\n";
+    cout<<&age<<"\n";
+    cout<<&student<<"\n";
+}
+
+void VariableReference(std::string &name, const std::string nationality)
+{
+    cout<<"************OPERATION FUNCTION************\n";
+    cout<<"Enter text: ";
+    std::getline(cin, name);
+    cout<<"New value: "<<name<<"\n";
+    cout<<"Nationality: "<<nationality<<"\n";
+}
+
+void Pointers()
+{
+    std::string name = "Erick";
+    std::string *pName = &name;
+    cout<<pName<<"\n";
+
+    int age = 36;
+    int *pAge = &age;
+    cout<<pAge<<"\n";
+
+    std::string freePizzas[5] = {"Pizza 1", "Pizza 2", "Pizza 3", "Pizza 4", "Pizza 5"};
+    cout<<freePizzas<<"\n";
+
+    int *pointer = nullptr;
+    cout<<pointer<<"\n";
+}
+
+void DynamicMemory()
+{
+    int *pNum = NULL;
+    pNum = new int;
+    *pNum = 21;
+    cout<<"address: "<<pNum<<"\n";
+    cout<<"value: "<<*pNum<<"\n";
+
+    char *pGrades = NULL;
+    int size;
+    cout<<"Enter size: ";
+    cin>>size;
+    pGrades = new char[size];
+
+    for (int i=0; i<size; i++)
+    {
+        cout<<"Enter grade #"<<i+1<<": ";
+        cin>>pGrades[i];
+    }
+
+    for (int i=0; i<size; i++)
+    {
+    cout<<pGrades[i]<<" ";
+    }
+
+    delete[] pGrades;
+}
+
 
 int main()
 {
@@ -688,7 +755,20 @@ int main()
     //SumArray(numArray, size);
     //BubbleSort(numArray, size);
     //FillArray();
-    MultiDimensionalArrays();
+    //MultiDimensionalArrays();
+
+    //MemoryAddress();
+    /*
+    std::string name = "test";
+    cout<<"\n************MAIN FUNCTION************\n";
+    cout<<"Main function: "<<name<<"\n\n";
+
+    VariableReference(name, "Peruvian");
+    cout<<"\n************MAIN FUNCTION************\n";
+    cout<<"Main function: "<<name;
+    */
+    //Pointers();
+    DynamicMemory();
 
     return 0;
 }
